@@ -8,3 +8,4 @@ tmp/*
 pkg/*
 .yardoc
 doc/
+/vendor/cache
