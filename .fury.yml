@@ -1,0 +1,10 @@
+builds:
+  - pack: https://github.com/markjeee/fury-buildpack-packtory
+    env:
+      PACKAGE_OUTPUT: "deb"
+  - pack: https://github.com/markjeee/fury-buildpack-packtory
+    env:
+      PACKAGE_OUTPUT: "rpm"
+  - pack: https://github.com/markjeee/fury-buildpack-packtory
+    env:
+      PACKAGE_OUTPUT: "brew"

@@ -4,3 +4,8 @@ gemfury-*.gem
 Gemfile.lock
 Gemfile.18.lock
 Gemfile.19.lock
+/tmp
+/vendor/cache
+/pkg/*.deb
+/pkg/*.rpm
+/pkg/*.tar.gz
