@@ -1,0 +1,215 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "FURY" "1" "December 2018" "" ""
+.
+.SH "NAME"
+\fBfury\fR \- CLI to manage your Gemfury account
+.
+.SH "SYNOPSIS"
+\fBfury login\fR
+.
+.br
+\fBfury logout\fR
+.
+.br
+\fBfury push\fR FILE
+.
+.br
+\fBfury list\fR
+.
+.br
+\fBfury versions\fR NAME
+.
+.br
+\fBfury yank\fR NAME \-v, \-\-version=VERSION
+.
+.br
+\fBfury migrate\fR DIR
+.
+.br
+\fBfury whoami\fR
+.
+.br
+\fBfury help\fR [COMMAND]
+.
+.br
+\fBfury git:list\fR
+.
+.br
+\fBfury git:rebuild\fR
+.
+.br
+\fBfury git:rename\fR
+.
+.br
+\fBfury git:reset\fR
+.
+.br
+\fBfury sharing\fR
+.
+.br
+\fBfury sharing:add\fR EMAIL
+.
+.br
+\fBfury sharing:remove\fR EMAIL
+.
+.br
+.
+.SH "DESCRIPTION"
+Gemfury CLI allows you to control your Gemfury account without opening a browser\. Once you register for an account, you can start by installing the command\-line tool:
+.
+.IP "" 4
+.
+.nf
+
+$ gem install gemfury
+.
+.fi
+.
+.IP "" 0
+.
+.P
+You will need a working Ruby and Rubygems setup in your system\. Ruby version at least 1\.8 is required\.
+.
+.P
+Please see below for other install options, using Homebrew, Apt, or Yum\.
+.
+.P
+Authenticate with your Gemfury login credentials:
+.
+.IP "" 4
+.
+.nf
+
+$ fury login
+Please enter your Gemfury credentials\.
+Email: youremail@domain\.com
+Password: <hidden password>
+You are logged in as "[USERNAME]"
+.
+.fi
+.
+.IP "" 0
+.
+.P
+And subsequently uploading your first package:
+.
+.IP "" 4
+.
+.nf
+
+$ fury push package\-1\.0\.0\.gem
+.
+.fi
+.
+.IP "" 0
+.
+.P
+That\'s it!
+.
+.SH "UPLOADING"
+Uploading your packages is easy\. Once you\'ve installed the Gemfury CLI, upload files to your account with:
+.
+.IP "" 4
+.
+.nf
+
+$ fury push package\-1\.0\.0\.gem
+.
+.fi
+.
+.IP "" 0
+.
+.P
+If you are migrating from another server, or just have many packages lying around, you can specify a directory path and the CLI will upload all the packages found in that directory:
+.
+.IP "" 4
+.
+.nf
+
+$ fury migrate \./path/to/codez
+.
+.fi
+.
+.IP "" 0
+.
+.SH "GENERAL OPTIONS"
+.
+.TP
+\fB\-\-as=ACCOUNT\fR
+Specify the account to use, where you have a collaborator access\.
+.
+.IP
+e\.g\. Push package to company account\.
+.
+.IP
+$ fury push package\-1\.0\.0\.gem \-\-as=company
+.
+.TP
+\fB\-\-api\-token=TOKEN\fR
+Use specific access token, instead of the locally stored access credentials\.
+.
+.SH "COMMANDS"
+.
+.TP
+\fBfury login\fR
+Login to your Gemfury account and locally store access credentials\.
+.
+.TP
+\fBfury logout\fR
+Logout from your Gemfury account and remove the locally stored access credentials\.
+.
+.TP
+\fBfury push\fR \fIpackage\fR [\-\-public]
+Push package to your account\.
+.
+.IP
+\fB\-\-public\fR: Set privacy setting to public\.
+.
+.TP
+\fBfury list\fR
+List packages in your account\.
+.
+.TP
+\fBfury versions\fR \fIpackage\fR
+List versions of a specified package\.
+.
+.TP
+\fBfury yank\fR \fIpackage\fR \-\-version=VERSION
+Delete a version of a specified package\.
+.
+.TP
+\fBfury migrate\fR \fIdirectory\fR
+Push all packages found within the specified directory\.
+.
+.TP
+\fBfury whoami\fR
+Display the username of the currently logged in user\.
+.
+.SH "INSTALL OPTIONS"
+You may install using other distribution system\.
+.
+.IP "\(bu" 4
+Install using Homebrew on OSX
+.
+.IP
+$ brew tap gemfury/tap
+.
+.br
+$ brew install gemfury
+.
+.IP "\(bu" 4
+Install using Apt on Debian / Ubuntu based systems
+.
+.IP
+$ apt install gemfury
+.
+.IP "\(bu" 4
+Install using Yum on Fedora / CentOS based systems
+.
+.IP
+$ yum install gemfury
+.
+.IP "" 0
+

@@ -16,6 +16,12 @@ class Gemfury::Command::App < Thor
     shell.say Gemfury::VERSION
   end
 
+  desc "man", "Display manual pages"
+  def man
+    man_path = File.expand_path('../../../../man/fury.1', __FILE__)
+    Kernel.exec('man %s' % man_path)
+  end
+
   ### PACKAGE MANAGEMENT ###
   option :public, :type => :boolean, :desc => "Create as public package"
   option :quiet, :type => :boolean, :aliases => "-q", :desc => "Do not show progress bar", :default => false

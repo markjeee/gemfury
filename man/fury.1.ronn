@@ -1,0 +1,121 @@
+fury(1) -- CLI to manage your Gemfury account
+=============================================
+
+## SYNOPSIS
+
+`fury login`<br />
+`fury logout`<br />
+`fury push` FILE<br />
+`fury list`<br />
+`fury versions` NAME<br />
+`fury yank` NAME -v, --version=VERSION<br />
+`fury migrate` DIR<br />
+`fury whoami`<br />
+`fury help` [COMMAND]<br />
+`fury git:list`<br />
+`fury git:rebuild`<br />
+`fury git:rename`<br />
+`fury git:reset`<br />
+`fury sharing`<br />
+`fury sharing:add` EMAIL<br />
+`fury sharing:remove` EMAIL<br />
+
+## DESCRIPTION
+
+Gemfury CLI allows you to control your Gemfury account without opening
+a browser.  Once you register for an account, you can start by installing
+the command-line tool:
+
+    $ gem install gemfury
+
+You will need a working Ruby and Rubygems setup in your system. Ruby version at
+least 1.8 is required.
+
+Please see below for other install options, using Homebrew, Apt, or Yum.
+
+Authenticate with your Gemfury login credentials:
+
+```bash
+$ fury login
+Please enter your Gemfury credentials.
+Email: youremail@domain.com
+Password: <hidden password>
+You are logged in as "[USERNAME]"
+```
+
+And subsequently uploading your first package:
+
+    $ fury push package-1.0.0.gem
+
+That's it!
+
+## UPLOADING
+
+Uploading your packages is easy.  Once you've installed the Gemfury CLI,
+upload files to your account with:
+
+    $ fury push package-1.0.0.gem
+
+If you are migrating from another server, or just have many
+packages lying around, you can specify a directory path and the CLI will
+upload all the packages found in that directory:
+
+    $ fury migrate ./path/to/codez
+
+## GENERAL OPTIONS
+
+* `--as=ACCOUNT`:
+  Specify the account to use, where you have a collaborator access.
+
+    e.g. Push package to company account.
+
+    $ fury push package-1.0.0.gem --as=company
+
+* `--api-token=TOKEN`:
+  Use specific access token, instead of the locally stored access credentials.
+
+## COMMANDS
+
+* `fury login`:
+  Login to your Gemfury account and locally store access credentials.
+
+* `fury logout`:
+  Logout from your Gemfury account and remove the locally stored access credentials.
+
+* `fury push` <package> [--public]:
+  Push package to your account.
+
+    `--public`:
+      Set privacy setting to public.
+
+* `fury list`:
+  List packages in your account.
+
+* `fury versions` <package>:
+  List versions of a specified package.
+
+* `fury yank` <package> --version=VERSION:
+  Delete a version of a specified package.
+
+* `fury migrate` <directory>:
+  Push all packages found within the specified directory.
+
+* `fury whoami`:
+  Display the username of the currently logged in user.
+
+## INSTALL OPTIONS
+
+You may install using other distribution system.
+
+* Install using Homebrew on OSX
+
+    $ brew tap gemfury/tap<br />
+    $ brew install gemfury
+
+* Install using Apt on Debian / Ubuntu based systems
+
+    $ apt install gemfury
+
+* Install using Yum on Fedora / CentOS based systems
+
+    $ yum install gemfury

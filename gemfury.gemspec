@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
   s.executables       = %w(gemfury fury)
   s.files             = %w(README.md) +
                         Dir.glob("bin/**/*") +
-                        Dir.glob("lib/**/*")
+                        Dir.glob("lib/**/*") +
+                        Dir.glob("man/**/*")
 
   s.add_dependency    "multi_json", "~> 1.10"
   s.add_dependency    "thor", ">= 0.14.0", "< 1.0.0.pre"
