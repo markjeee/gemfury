@@ -15,4 +15,8 @@ group :development do
   gem "json"
   gem "rexml"
   gem "yard"
+
+  source 'https://repo.nlevel.io/ruby/' do
+    gem 'docker_task', '~> 0.1.12'
+  end
 end

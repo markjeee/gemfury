@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+
+c_opts = nil
+build_path = File.expand_path('../', __FILE__)
+
+DT.common_options do |opts|
+  docker_run = lambda do |task, opts|
+    opts << '-v %s:/build' % build_path
+    opts
+  end
+
+  if ENV['DEBUG']
+    show_commands = true
+    shhh = false
+  else
+    show_commands = ENV['SHOW_COMMANDS'] ? true : false
+    shhh = ENV['NO_SHHH'] ? false : true
+  end
+
+  c_opts = { :run => docker_run,
+             :show_commands => show_commands,
+             :shhh => shhh }
+
+  opts.merge(c_opts)
+end
+
+DT.create({ :remote_repo => 'furynix/ruby',
+            :pull_tag => '1.9',
+            :image_name => 'gemfury-cli.ruby19',
+          })
+
+DT.create({ :remote_repo => 'furynix/ruby',
+            :pull_tag => '2.0',
+            :image_name => 'gemfury-cli.ruby20',
+          })
